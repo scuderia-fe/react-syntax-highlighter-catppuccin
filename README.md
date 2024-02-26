@@ -9,22 +9,22 @@
 
 ## Getting started
 
-Install `react-syntax-highlighter-cattpuccin` with your preferred package-manager.
+Install `react-syntax-highlighter-catppuccin` with your preferred package-manager.
 
 ```shell
-pnpm i -D react-syntax-highlighter-cattpuccin
+pnpm i -D react-syntax-highlighter-catppuccin
 ```
 
 After import your preferred theme.
 
 ```tsx
-import { latte } from 'react-syntax-highlighter-cattpuccin'
+import { latte } from 'react-syntax-highlighter-catppuccin'
 // OR
-import { macchiato } from 'react-syntax-highlighter-cattpuccin'
+import { macchiato } from 'react-syntax-highlighter-catppuccin'
 // OR
-import { frappe } from 'react-syntax-highlighter-cattpuccin'
+import { frappe } from 'react-syntax-highlighter-catppuccin'
 // OR
-import { mocha } from 'react-syntax-highlighter-cattpuccin'
+import { mocha } from 'react-syntax-highlighter-catppuccin'
 ```
 
 and use inside your component.
