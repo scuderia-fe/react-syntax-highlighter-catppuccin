@@ -18,13 +18,10 @@ pnpm i -D react-syntax-highlighter-catppuccin
 After import your preferred theme.
 
 ```tsx
-import { latte } from 'react-syntax-highlighter-catppuccin'
-// OR
-import { macchiato } from 'react-syntax-highlighter-catppuccin'
-// OR
-import { frappe } from 'react-syntax-highlighter-catppuccin'
-// OR
-import { mocha } from 'react-syntax-highlighter-catppuccin'
+import latte from 'react-syntax-highlighter-catppuccin/latte';
+import macchiato from 'react-syntax-highlighter-catppuccin/macchiato';
+import frappe from 'react-syntax-highlighter-catppuccin/frappe';
+import mocha from 'react-syntax-highlighter-catppuccin/mocha';
 ```
 
 and use inside your component.

@@ -1,23 +1,32 @@
 {
   "name": "react-syntax-highlighter-catppuccin",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "author": "Alessio Marchi<65831826+kettei-sproutty@users.noreply.github.com>",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
+  "repository": "https://github.com/scuderia-fe/react-syntax-highlighter-catppuccin",
   "files": [
-    "dist"
+    "dist/frappe.js",
+    "dist/macchiato.d.ts",
+    "dist/mocha.d.ts",
+    "dist/frappe.d.ts",
+    "dist/latte.js",
+    "dist/latte.d.ts",
+    "dist/macchiato.js",
+    "dist/mocha.js"
   ],
   "scripts": {
-    "build": "vite build"
+    "build": "bun --bun run ./index.ts"
   },
   "dependencies": {
     "@catppuccin/palette": "^1.1.0"
   },
   "devDependencies": {
     "@tsconfig/strictest": "^2.0.3",
+    "@types/bun": "^1.0.8",
+    "@types/node": "^20.11.20",
     "@types/react": "^18.2.58",
+    "bun-plugin-dts": "^0.2.1",
+    "bun-types": "^1.0.29",
     "react": "^18.2.0",
     "react-syntax-highlighter": "^15.5.0",
     "typescript": "^5.3.3",

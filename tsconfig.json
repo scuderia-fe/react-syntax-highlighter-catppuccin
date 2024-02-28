@@ -2,8 +2,9 @@
   "extends": "@tsconfig/strictest",
   "compilerOptions": {
     "composite": true,
+    "declaration": true,
     "emitDeclarationOnly": true,
     "outDir": "dist",
   },
-  "include": ["src"]
+  "include": ["src", "index.ts"]
 }

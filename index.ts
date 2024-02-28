@@ -1,3 +1,8 @@
+import bun from 'bun'
+import fs from 'node:fs';
+import path from 'node:path'
+import bunPluginDts from 'bun-plugin-dts'
+
 import { flavors } from "@catppuccin/palette";
 import type { CSSProperties } from "react";
 
@@ -144,7 +149,25 @@ const generateTheme = (flavor: keyof typeof flavors) => ({
 
 }) satisfies { [key: string]: CSSProperties }
 
-export const latte = generateTheme('latte');
-export const mocha = generateTheme('mocha');
-export const frappe = generateTheme('frappe');
-export const macchiato = generateTheme('macchiato');
+const themes = ['latte', 'mocha', 'frappe', 'macchiato'] as const;
+
+const basePath = path.join(__dirname, 'src');
+const outPath = 'dist';
+
+if (!fs.existsSync(basePath)) {
+  fs.mkdirSync(basePath);
+}
+
+themes.forEach((flavor) => {
+  const theme = generateTheme(flavor);
+  Bun.write(path.join(basePath, `${flavor}.ts`), `export default ${JSON.stringify(theme, null, 2)}`);
+});
+  
+
+bun.build({
+  entrypoints: themes.map((flavor) => path.join(basePath, `${flavor}.ts`)),
+  outdir: outPath,
+  plugins: [bunPluginDts()]
+})
+
+console.log(fs.readdirSync(outPath).map(x => `dist/${x}`));
