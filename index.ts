@@ -3,8 +3,9 @@ import fs from 'node:fs';
 import path from 'node:path'
 import bunPluginDts from 'bun-plugin-dts'
 
-import { flavors } from "@catppuccin/palette";
 import type { CSSProperties } from "react";
+import { flavors } from "@catppuccin/palette";
+
 
 const generateTheme = (flavor: keyof typeof flavors) => ({
   "hljs": {
@@ -160,7 +161,13 @@ if (!fs.existsSync(basePath)) {
 
 themes.forEach((flavor) => {
   const theme = generateTheme(flavor);
-  Bun.write(path.join(basePath, `${flavor}.ts`), `export default ${JSON.stringify(theme, null, 2)}`);
+  Bun.write(path.join(basePath, `${flavor}.ts`), `
+  import type { CSSProperties } from "react";
+  
+  const ${flavor}: { [key: string]: CSSProperties } = ${JSON.stringify(theme, null, 2)};
+  
+  export default ${flavor};
+  `);
 });
   
 
@@ -170,4 +177,5 @@ bun.build({
   plugins: [bunPluginDts()]
 })
 
-console.log(fs.readdirSync(outPath).map(x => `dist/${x}`));
+fs.copyFileSync(path.join(__dirname, 'package.json'), path.join(outPath, 'package.json'));
+fs.copyFileSync(path.join(__dirname, 'README.md'), path.join(outPath, 'README.md'));

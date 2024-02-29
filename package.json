@@ -1,26 +1,24 @@
 {
   "name": "react-syntax-highlighter-catppuccin",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "license": "MIT",
   "author": "Alessio Marchi<65831826+kettei-sproutty@users.noreply.github.com>",
   "repository": "https://github.com/scuderia-fe/react-syntax-highlighter-catppuccin",
   "files": [
-    "dist/frappe.js",
-    "dist/macchiato.d.ts",
-    "dist/mocha.d.ts",
-    "dist/frappe.d.ts",
-    "dist/latte.js",
-    "dist/latte.d.ts",
-    "dist/macchiato.js",
-    "dist/mocha.js"
+    "frappe.js",
+    "macchiato.d.ts",
+    "mocha.d.ts",
+    "frappe.d.ts",
+    "latte.js",
+    "latte.d.ts",
+    "macchiato.js",
+    "mocha.js"
   ],
   "scripts": {
     "build": "bun --bun run ./index.ts"
   },
-  "dependencies": {
-    "@catppuccin/palette": "^1.1.0"
-  },
   "devDependencies": {
+    "@catppuccin/palette": "^1.1.0",
     "@tsconfig/strictest": "^2.0.3",
     "@types/bun": "^1.0.8",
     "@types/node": "^20.11.20",
